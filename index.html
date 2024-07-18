@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion and Beauty Listings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* Styles for the back to top button */
+        #backToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* 20px from the bottom */
+            right: 30px; /* 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: #007bff; /* Set background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Pointer/hand icon */
+            padding: 15px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        #backToTopBtn:hover {
+            background-color: #555; /* Add a dark-grey background on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <h2 class="h2">Fashion and Beauty</h2>
+        <div class="mb-5">
+            <div class="row align-items-center">
+                <div class="col-md-2">
+                    <select id="category" class="form-control">
+                        <option value="">Select Category</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="beauty-products">Beauty Products</option>
+                        <option value="footwear">Footwear</option>
+                        <option value="jewelry">Jewelry</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <input type="number" id="minPrice" class="form-control" placeholder="Min Price">
+                </div>
+                <div class="col-md-2">
+                    <input type="number" id="maxPrice" class="form-control" placeholder="Max Price">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" id="location" class="form-control" placeholder="Location">
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary w-100" onclick="handleSearch()">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="adContainer">
+            <!-- Ad cards will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">Top</button>
+
+    <!-- Modal HTML -->
+    <div class="modal fade" id="adModal" tabindex="-1" aria-labelledby="adModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adModalLabel">Ad Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Carousel for images -->
+                    <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" id="carouselInner">
+                            <!-- Carousel items will be dynamically added here -->
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <h4 class="mt-3">Details:</h4>
+                    <p id="modalLocation"></p>
+                    <p id="modalPrice"></p>
+                    <p id="modalCategory"></p>
+                    <p id="modalPostedTime"></p>
+                    <p id="modalDescription"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
